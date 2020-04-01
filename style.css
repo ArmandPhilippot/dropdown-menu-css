@@ -1,0 +1,614 @@
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, "Liberation Sans", Helvetica, sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.618;
+  margin: 0;
+}
+
+.site {
+  font-size: 1.05rem;
+  position: relative;
+  word-wrap: break-word;
+  position: relative;
+  margin: 0 auto;
+  padding: 0 1.618rem;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  align-items: center;
+  position: relative;
+  margin: 0 auto 2.427rem;
+}
+
+.site-branding {
+  flex: 1 0 80%;
+  max-width: 80%;
+}
+
+.site-title {
+  margin: 1.618rem 0 0;
+  line-height: 1;
+  font-size: 1.3rem;
+  font-weight: 400;
+  word-break: break-all;
+}
+
+.site-header > .top-nav-label {
+  flex: 0 0 auto;
+}
+
+.main-navigation {
+  display: none;
+  flex: 1 0 100%;
+}
+
+.main-navigation ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.main-navigation .menu {
+  position: relative;
+  border: 0.0625rem solid #dcdcdc;
+  width: 100%;
+}
+
+.main-navigation .menu::before {
+  border-bottom: 0.5625rem solid #dcdcdc;
+  border-left: 0.5625rem solid transparent;
+  border-right: 0.5625rem solid transparent;
+  border-top: 0 solid #dcdcdc;
+  content: "";
+  right: 0.625rem;
+  position: absolute;
+  top: -0.5625rem;
+}
+
+.main-navigation .menu::after {
+  border-color: #efefef transparent;
+  border-style: solid;
+  border-width: 0 0.5rem 0.5rem;
+  content: "";
+  right: 0.6875rem;
+  position: absolute;
+  top: -0.4375rem;
+}
+
+.main-navigation .menu .menu-item {
+  position: relative;
+}
+
+.main-navigation .menu .menu-item a {
+  background: #efefef;
+  border: 0.0625rem solid #dcdcdc;
+  color: #1450aa;
+  display: block;
+  padding: 0.809rem 1.618rem;
+  text-decoration: none;
+}
+
+.main-navigation .menu .menu-item a:hover,
+.main-navigation .menu .menu-item a:focus {
+  background: #1450aa;
+  color: #efefef;
+}
+
+.main-navigation .menu .menu-item a:active {
+  background: #0b3d86;
+  color: #efefef;
+}
+
+.main-navigation .sub-menu {
+  display: none;
+  border-left: 0.1875rem solid #dcdcdc;
+  border-right: 0.1875rem solid #dcdcdc;
+}
+
+.menu .menu-item-has-children,
+.sub-menu .menu-item-has-children {
+  position: relative;
+}
+
+.main-navigation .menu .menu-item-has-children a {
+  padding: 0.809rem 3.4375rem 0.809rem 1.618rem;
+}
+
+/* Hide/Show Main Menu if checkbox unchecked/checked */
+.site-header > [type="checkbox"]:checked ~ .main-navigation {
+  display: block;
+}
+
+/* Hide/Show Sub-Menu if checkbox unchecked/checked */
+.main-navigation [type="checkbox"]:checked ~ ul {
+  display: block;
+}
+
+/* Toggle buttons */
+.top-nav-label {
+  cursor: pointer;
+  display: block;
+  font-size: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+}
+
+.top-nav-label .open-close-menu {
+  display: block;
+  position: absolute;
+  z-index: 99999;
+}
+
+.top-nav-label .open-close-menu::before,
+.top-nav-label .open-close-menu::after {
+  border-radius: 0.1875rem;
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+/* Hamburger button */
+.site-header > .top-nav-label {
+  position: relative;
+  right: 0;
+  top: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 0.1875rem;
+}
+
+.site-header > .top-nav-label .open-close-menu {
+  background: #1450aa;
+  border-radius: 0.1875rem;
+  height: 0.25rem;
+  left: 0.1875rem;
+  right: 0.1875rem;
+  top: 1.125rem;
+  transition: 0.25s ease-in-out 0s;
+}
+
+.site-header > .top-nav-label .open-close-menu::before,
+.site-header > .top-nav-label .open-close-menu::after {
+  background-color: #1450aa;
+  height: 0.25rem;
+  left: 0;
+  transition-duration: 0.3s, 0.3s;
+  width: 100%;
+}
+
+.site-header > .top-nav-label .open-close-menu::before {
+  top: -0.6875rem;
+  transform-origin: top;
+}
+
+.site-header > .top-nav-label .open-close-menu::after {
+  bottom: -0.6875rem;
+  transform-origin: bottom;
+}
+
+/* Hamburger animation */
+.site-header > [type="checkbox"]:checked ~ .top-nav-label .open-close-menu {
+  background: none;
+  transition-delay: 0s, 0.3s;
+}
+
+.site-header
+  > [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::before,
+.site-header
+  > [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::after {
+  left: 0.125rem;
+  transition-delay: 0s, 0.3s;
+}
+
+.site-header
+  > [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.site-header
+  > [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+}
+
+/* Hamburger button hover/focus/active */
+.site-header > .top-nav-label:hover,
+.site-header > input[type="checkbox"]:focus ~ .top-nav-label,
+.site-header > input[type="checkbox"]:hover ~ .top-nav-label {
+  background: #1450aa;
+}
+
+.site-header > .top-nav-label:hover .open-close-menu,
+.site-header > .top-nav-label:hover .open-close-menu::after,
+.site-header > .top-nav-label:hover .open-close-menu::before,
+.site-header > input[type="checkbox"]:focus ~ .top-nav-label .open-close-menu,
+.site-header
+  > input[type="checkbox"]:focus
+  ~ .top-nav-label
+  .open-close-menu::before,
+.site-header
+  > input[type="checkbox"]:focus
+  ~ .top-nav-label
+  .open-close-menu::after,
+.site-header > input[type="checkbox"]:hover ~ .top-nav-label .open-close-menu,
+.site-header
+  > input[type="checkbox"]:hover
+  ~ .top-nav-label
+  .open-close-menu::before,
+.site-header
+  > input[type="checkbox"]:hover
+  ~ .top-nav-label
+  .open-close-menu::after {
+  background: #efefef;
+}
+
+.site-header
+  > input[type="checkbox"]:checked
+  ~ .top-nav-label:hover
+  .open-close-menu,
+.site-header
+  > input[type="checkbox"]:checked:focus
+  ~ .top-nav-label
+  .open-close-menu,
+.site-header
+  > input[type="checkbox"]:checked:hover
+  ~ .top-nav-label
+  .open-close-menu {
+  background: none;
+}
+
+/* Plus/Minus button */
+.main-navigation .menu-item-has-children > .top-nav-label {
+  position: absolute;
+  right: 0.0625rem;
+  top: 0.0625rem;
+  height: 3.3125rem;
+  width: 3.3125rem;
+}
+
+.main-navigation .menu-item-has-children > .top-nav-label .open-close-menu {
+  height: 100%;
+  width: 100%;
+}
+
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label
+  .open-close-menu::after,
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label
+  .open-close-menu::before {
+  background: #1450aa;
+  transition: transform 0.25s ease-out;
+}
+
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label
+  .open-close-menu::before {
+  height: 50%;
+  left: calc(50% - 0.1875rem / 2);
+  top: 25%;
+  width: 0.1875rem;
+}
+
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label
+  .open-close-menu::after {
+  height: 0.1875rem;
+  left: 25%;
+  top: calc(50% - 0.1875rem / 2);
+  width: 50%;
+}
+
+.main-navigation .menu-item-has-children a:hover ~ .top-nav-label,
+.main-navigation .menu-item-has-children a:focus ~ .top-nav-label,
+.main-navigation .menu-item-has-children a:active ~ .top-nav-label,
+.main-navigation .menu-item-has-children:focus-within a ~ .top-nav-label {
+  background: #efefef;
+}
+
+/* Plus/Minus button animation */
+.main-navigation
+  [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::before {
+  transform: rotate(90deg);
+}
+
+.main-navigation
+  [type="checkbox"]:checked
+  ~ .top-nav-label
+  .open-close-menu::after {
+  transform: rotate(180deg);
+}
+
+/* Plus/Minus button hover/focus/active */
+.main-navigation .menu-item-has-children > .top-nav-label:hover {
+  background: #1450aa;
+}
+
+.main-navigation
+  .menu-item-has-children
+  input[type="checkbox"]:focus
+  ~ .top-nav-label {
+  background: #1450aa;
+}
+
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label:hover
+  .open-close-menu::after,
+.main-navigation
+  .menu-item-has-children
+  > .top-nav-label:hover
+  .open-close-menu::before,
+.main-navigation
+  .menu-item-has-children
+  input[type="checkbox"]:focus
+  ~ .top-nav-label
+  .open-close-menu::before,
+.main-navigation
+  .menu-item-has-children
+  input[type="checkbox"]:focus
+  ~ .top-nav-label
+  .open-close-menu::after {
+  background: #efefef;
+}
+
+/* Hide and place checkbox over the toggle buttons */
+.site-header input[type="checkbox"] {
+  cursor: pointer;
+  display: block;
+  opacity: 0;
+  position: absolute;
+  z-index: 2;
+}
+
+.site-header > input[type="checkbox"] {
+  right: 0.5rem;
+  top: 2.75rem;
+}
+
+.site-header .menu-item-has-children input[type="checkbox"] {
+  right: 1rem;
+  top: 1rem;
+}
+
+/* Display the right label if checkbox checked */
+.site-header input[type="checkbox"] + .top-nav-label .close-menu,
+.site-header input[type="checkbox"]:checked + .top-nav-label .open-menu {
+  display: none;
+}
+
+.site-header input[type="checkbox"]:checked + .top-nav-label .close-menu,
+.site-header input[type="checkbox"] + .top-nav-label .open-menu {
+  display: block;
+}
+
+@media only screen and (min-width: 37.5em) {
+  .site-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 64em) {
+  .site-branding {
+    flex: 1 0 30%;
+    max-width: 30%;
+  }
+
+  .site-title {
+    font-size: 1.8rem;
+  }
+
+  .site-header input[type="checkbox"],
+  .site-header .top-nav-label {
+    display: none;
+  }
+
+  .main-navigation {
+    display: block;
+    flex: 1 0 70%;
+    max-width: 70%;
+  }
+
+  .main-navigation .menu {
+    border: none;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .main-navigation .menu::before,
+  .main-navigation .menu::after {
+    display: none;
+  }
+
+  .main-navigation .menu > .menu-item {
+    margin-left: 0.3125rem;
+  }
+
+  .main-navigation .menu .menu-item a {
+    background: #fff;
+    border: none;
+    color: #1450aa;
+    padding: 0.4045rem 0.809rem;
+  }
+
+  .main-navigation .menu .menu-item a:hover {
+    background: #fff;
+    color: #1450aa;
+    text-decoration: underline;
+  }
+
+  .main-navigation .menu .menu-item a:active {
+    color: #0b3d86;
+    text-decoration: none;
+  }
+
+  .main-navigation .menu-item-has-children > .top-nav-label {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 2.5625rem;
+    width: 2.5625rem;
+  }
+
+  .main-navigation .menu-item-has-children a:hover ~ .top-nav-label,
+  .main-navigation .menu-item-has-children a:focus ~ .top-nav-label,
+  .main-navigation .menu-item-has-children a:active ~ .top-nav-label,
+  .main-navigation .menu-item-has-children:focus-within a ~ .top-nav-label {
+    background: #fff;
+  }
+
+  .main-navigation .menu .menu-item-has-children a {
+    padding: 0.4045rem 0.809rem;
+  }
+
+  .main-navigation .menu .menu-item-has-children > a::after {
+    display: inline-block;
+    content: "\25BC";
+    margin-left: 0.4045rem;
+    text-decoration: none;
+    position: relative;
+  }
+
+  /* Show submenu on hover/focus */
+  .main-navigation .menu-item-has-children > a:hover ~ ul,
+  .main-navigation .menu-item-has-children:hover > a ~ ul,
+  .main-navigation .menu-item-has-children > a ~ ul:hover,
+  .main-navigation .menu-item-has-children > a:focus ~ ul {
+    display: block;
+    z-index: 999;
+    pointer-events: auto;
+  }
+
+  /* Same rules - Focus-within not supported by Edge/IE. Unsupported selectors cause the entire block to be ignored, so we must repeat all styles separately. */
+  .main-navigation .menu-item-has-children:focus-within > a ~ ul {
+    display: block;
+    z-index: 999;
+  }
+
+  .main-navigation .sub-menu {
+    min-width: 100%;
+    position: absolute;
+    border: 0.0625rem solid #dcdcdc;
+  }
+
+  .main-navigation .sub-menu::before {
+    border-bottom: 0.5625rem solid #dcdcdc;
+    border-left: 0.5625rem solid transparent;
+    border-right: 0.5625rem solid transparent;
+    border-top: 0 solid #dcdcdc;
+    content: "";
+    left: 30%;
+    position: absolute;
+    top: -0.5625rem;
+  }
+
+  .main-navigation .sub-menu::after {
+    border-color: #fff transparent;
+    border-style: solid;
+    border-width: 0 0.5rem 0.5rem;
+    content: "";
+    left: calc(30% + 0.0625rem);
+    position: absolute;
+    top: -0.4375rem;
+  }
+
+  .main-navigation .sub-menu .sub-menu::before,
+  .main-navigation .sub-menu .sub-menu::after {
+    display: none;
+  }
+
+  .main-navigation .sub-menu .menu-item-has-children > a::after {
+    content: "\25C4";
+    vertical-align: top;
+  }
+
+  .main-navigation .sub-menu ul {
+    left: -100%;
+    top: 0;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 64em) and (any-pointer: coarse) {
+  .main-navigation .menu .menu-item-has-children a {
+    padding-right: 3rem;
+  }
+
+  .site-header .menu-item-has-children .top-nav-label {
+    display: block;
+  }
+
+  .site-header .menu-item-has-children input[type="checkbox"] {
+    display: block;
+    right: 0.625rem;
+    top: 0.625rem;
+  }
+
+  .main-navigation .menu-item-has-children > a:focus ~ ul,
+  .main-navigation
+    .menu-item-has-children
+    > input[type="checkbox"]:not(:checked):focus
+    ~ ul {
+    display: none;
+  }
+
+  .main-navigation .menu .menu-item-has-children > a::after,
+  .main-navigation .sub-menu .menu-item-has-children > a::after {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 100em) {
+  .site {
+    max-width: 80rem;
+  }
+
+  .site-title {
+    font-size: 2rem;
+  }
+
+  .main-navigation .sub-menu ul {
+    left: 100%;
+    top: 0;
+    max-width: 100%;
+  }
+
+  .main-navigation .sub-menu .menu-item-has-children > a::after {
+    content: "\25BA";
+  }
+}
